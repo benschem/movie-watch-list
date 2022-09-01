@@ -6,8 +6,8 @@ class BookmarksController < ApplicationController
   end
 
   def create
-    # raise
     @bookmark = Bookmark.new(bookmark_params)
+    @bookmark.list = @list
     if @bookmark.save
       redirect_to list_path(@list)
     else
@@ -28,6 +28,6 @@ class BookmarksController < ApplicationController
   end
 
   def bookmark_params
-    params.require(:bookmark).permit(:movie, :comment)
+    params.require(:bookmark).permit(:movie_id, :comment)
   end
 end

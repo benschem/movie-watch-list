@@ -1,2 +1,24 @@
-<h1><%= @list.name %></h1>
-<%= link_to 'Back to All Lists', root_path %>
+<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @list.photo.key, height: 300, crop: :fill %>')"
+>
+  <h1><%= @list.name %></h1>
+</div>
+
+<% @list.bookmarks.each do |bookmark| %>
+  <div class="card card-category">
+    <div class="card-title">
+      <%= bookmark.movie.title %>
+    </div>
+    <div class="card-text">
+      <%= bookmark.comment %>
+    </div>
+  </div>
+<% end %>
+
+<%= link_to 'Back to all Lists', root_path, class: "btn btn-gradient" %>
+
+<h1>Add movies</h1>
+<%= simple_form_for([@list, @bookmark]) do |f| %>
+  <%= f.input :comment %>
+  <%= f.association :movie %>
+  <%= f.button :submit, :class =>"btn btn-gradient" %>
+<% end %>
