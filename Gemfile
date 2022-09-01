@@ -76,3 +76,9 @@ gem "simple_form", github: "heartcombo/simple_form"
 # Testing
 gem 'rspec-rails', group: [ :test ]
 gem 'rails-controller-testing', group: [ :test ]
+
+# Image hosting with cloudinary
+gem "cloudinary"
+
+# Don't share our secret keys!
+gem "dotenv-rails", groups: [:development, :test]
