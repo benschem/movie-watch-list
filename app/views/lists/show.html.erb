@@ -38,6 +38,7 @@
 <div class="row">
   <% @list.bookmarks.each do |bookmark| %>
     <div class="card movie col-sm-12 col-md-2 my-3" style="background-image: url('<%= image_path bookmark.movie.poster_url, crop: :fill %>')">
+      <%= bookmark.movie.rating %>⭐️
     </div>
     <div class="card-body col-sm-12 col-md-3 my-3 mx-3 text-start class="fw-normal"">
       <h3 class="fw-normal"><%= bookmark.movie.title %></h3>
